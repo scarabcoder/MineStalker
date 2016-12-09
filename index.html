@@ -12,6 +12,11 @@
       src: url("Minecraftia.ttf");
     }
 
+    @font-face {
+      font-family: "Bebas";
+      src: url("Glober SemiBold Free.otf");
+    }
+
     #top-bar {
       width:100%;
       position:fixed;
@@ -22,7 +27,7 @@
       top:0px;
       background-repeat: no-repeat;
       background-size: cover;
-    transition: all 0.1s linear;
+      transition: all 0.1s linear;
 
       background:url("bar.png") no-repeat; width:100%; height:75px; background-size:100%;
 
@@ -83,6 +88,7 @@
       margin-top:9px;
 
       display:inline;
+      z-index:10;
     }
 
     #submit {
@@ -94,7 +100,7 @@
       width:56.25px;
       height:56.25;
       border-radius:2px;
-      padding-top:8px;
+      padding-top:10px;
       text-align:center;
       -webkit-transition: background-color 0.1s ease-in;
       -moz-transition: background-color 0.1s ease-in;
@@ -120,20 +126,137 @@
       height:200%;
     }
     #content {
-      margin-top:100px;
+      margin-top:75px;
+      margin-left:100px;
+      margin-right:100px;
+
+    }
+
+    #player-header {
+      font-size: 3em;
+      font-family:"Bebas";
+      text-align:center;
+      padding-top:75px;
+    }
+
+    #player-data-left {
+      display:inline;
+      float:left;
+      width:35%;
+      height:500px;
+      text-align:center;
+      padding-top:80px;
+
+    }
+    #player-data-left img {
+      -webkit-filter: drop-shadow(0px 0px 10px #222);
+          filter: drop-shadow(0px 0px 10px #222);
+          z-index:-1;
+    }
+    #player-data-right {
+      display:inline;
+      float:right;
+      width:65%;
+      height:500px;
+
+    }
+    #inset {
+      max-width:100%;
+      max-height:100%;
+      margin-left:25px;
+      margin-right:25px;
+      border: 1px solid lightgray;
+      border-radius:5px;
+      background-clip: padding-box;
+      -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.55);
+      -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.55);
+      box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.55);
+      padding:50px;
+      padding-bottom:100px;
+    }
+    #uuid {
+      font-size:0.9em;
+      display:inline;
+      padding:2px;
+      background-clip: padding-box;
+      float:left;
+
+
+    }
+    #uuid-code {
+      display:inline;
+      float:right;
+      font-size:0.9em;
+      font-family: monospace;
+      background: #CECECE;
+      border-radius:3px;
+      padding-left:5px;
+      padding-right:5px;
+    }
+    #uuid-code a {
+      margin-left:5px;
+      display:inline;
+      text-decoration: none;
+    }
+    #usernames {
+      font-size:1.5em;
+      font-family:"Bebas";
+      margin-top:50px;
+      text-align:center;
+      display:block;
+    }
+    td, th {
+      text-align: left;
+    }
+    th {
+      text-align:center;
+    }
+    table {
+      width:100%;
+    }
+    tr:nth-child(even){
+      background:#CECECE;
+    }
+    tr {
+      border:15px solid black;
     }
   </style>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
+
+  <div id="content">
+    <p id="player-header">ScarabCoder</p>
+    <div id="player-data-left">
+      <img src="https://minotar.net/armor/bust/ScarabCoder/1000.png">
+    </div>
+
+    <div id="player-data-right">
+      <div id="inset">
+        <p id="uuid">UUID: </p><p id="uuid-code">012ca32d-ad51-4f34-b68c-7b69a7960bac<a href="#" class="fa fa-files-o"></a></p>
+        <table>
+          <tr>
+            <th>Username</th>
+            <th>Changed At</th>
+          </tr>
+          <tr>
+            <td>ScarabCoder</td>
+            <td>Current</td>
+          </tr>
+          <tr>
+            <td>scarabcoder</td>
+            <td>September 16, 2016 at 14:30</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
   <div id="top-bar">
     <p class="header-text">MineStalker</p>
     <input type="text" id="textfield-header">
     <a href="#"><i class="fa fa-arrow-right" id="submit"></i></a>
-  </div>
-  <div id="content">
-    <p>ScarabCoder</p>
   </div>
   <script>
   $(window).scroll(function() {

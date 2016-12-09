@@ -1,7 +1,260 @@
 html
   head
-    title= title
+    title ScarabCoder - MineStalker
+    link(rel='stylesheet', href='http://www.w3schools.com/lib/w3.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    style.
+      @font-face {
+      font-family: "SomeTimeLater";
+      src: url("/Some Time Later.otf");
+      }
+      @font-face {
+      font-family: "Minecraft";
+      src: url("/Minecraftia.ttf");
+      }
+      @font-face {
+      font-family: "Bebas";
+      src: url("/Glober SemiBold Free.otf");
+      }
+      #top-bar {
+      width:100%;
+      position:fixed;
+      height:75px;
+      margin: 0;
+      padding: 0;
+      left:0px;
+      top:0px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: all 0.1s linear;
+      background:url("/bar.png") no-repeat; width:100%; height:75px; background-size:100%;
+      }
+      #textfield-header {
+      width:50%;
+      height:75%;
+      display:inline;
+      font-size:25px;
+      margin-top:9px;
+      margin-left:12.5%;
+      border-radius:1px;
+      font-family:"Minecraft";
+      padding-left:25px;
+      opacity:0.5;
+      border:0px;
+      -webkit-transition: opacity 0.1s ease-in;
+      -moz-transition: opacity 0.1s ease-in;
+      -ms-transition: opacity 0.1s ease-in;
+      -o-transition: opacity 0.1s ease-in;
+      transition: opacity 0.1s ease-in;
+      -webkit-transition: -webkit-box-shadow 0.1s ease-in;
+      -moz-transition: -moz-box-box-shadow 0.1s ease-in;
+      -ms-transition: box-shadow 0.1s ease-in;
+      -o-transition: box-shadow 0.1s ease-in;
+      transition: box-shadow 0.1s ease-in;
+      border-radius:2px;
+      }
+      textarea:focus, input:focus{
+      outline: none;
+      -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+      }
+      #textfield-header:focus {
+      opacity:1.0;
+      }
+      #search {
+      background-repeat: no-repeat;
+      display:inline;
+      margin-left:0px;
+      content: "\f002";
+      width:25px;
+      height:25px;
+      }
+      #top-bar .header-text{
+      margin-left:25px;
+      margin-top:9px;
+      display:inline;
+      z-index:10;
+      }
+      #submit {
+      font-size:35px;
+      position:fixed;
+      top:9px;
+      left:calc(25px + 50% + 12.5% + 136px);
+      background-color:#DB724C;
+      width:56.25px;
+      height:56.25;
+      border-radius:2px;
+      padding-top:10px;
+      text-align:center;
+      -webkit-transition: background-color 0.1s ease-in;
+      -moz-transition: background-color 0.1s ease-in;
+      -ms-transition: background-color 0.1s ease-in;
+      -o-transition: background-color 0.1s ease-in;
+      transition: background-color 0.1s ease-in;
+      }
+      #submit:hover {
+      background-color:#FF8259;
+      }
+      .header-text {
+      font-family:"SomeTimeLater";
+      font-size:2.6em;
+      }
+      .active {
+      -webkit-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
+      }
+      body {
+      height:200%;
+      }
+      #content {
+      margin-top:75px;
+      margin-left:100px;
+      margin-right:100px;
+      }
+      #player-header {
+      font-size: 3em;
+      font-family:"Bebas";
+      text-align:center;
+      padding-top:75px;
+      }
+      #player-data-left {
+      display:inline;
+      float:left;
+      width:35%;
+      height:500px;
+      text-align:center;
+      padding-top:80px;
+      }
+      #player-data-left img {
+      -webkit-filter: drop-shadow(0px 0px 10px #222);
+      filter: drop-shadow(0px 0px 10px #222);
+      z-index:-1;
+      }
+      #player-data-right {
+      display:inline;
+      float:right;
+      width:65%;
+      height:500px;
+      }
+      #inset {
+      max-width:100%;
+      max-height:100%;
+      margin-left:25px;
+      margin-right:25px;
+      border: 1px solid lightgray;
+      border-radius:5px;
+      background-clip: padding-box;
+      -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.55);
+      -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.55);
+      box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.55);
+      padding:50px;
+      padding-bottom:100px;
+      }
+      #uuid {
+      font-size:0.9em;
+      display:inline;
+      padding:2px;
+      background-clip: padding-box;
+      float:left;
+      }
+      #uuid-code {
+      display:inline;
+      float:right;
+      font-size:0.9em;
+      font-family: monospace;
+      background: #CECECE;
+      border-radius:3px;
+      padding-left:5px;
+      padding-right:5px;
+      }
+      #uuid-code a {
+      margin-left:5px;
+      display:inline;
+      text-decoration: none;
+      }
+      #usernames {
+      font-size:1.5em;
+      font-family:"Bebas";
+      margin-top:50px;
+      text-align:center;
+      display:block;
+      }
+      td, th {
+      text-align: left;
+      }
+      th {
+      text-align:center;
+      }
+      table {
+      width:100%;
+      }
+      tr:nth-child(even){
+      background:#CECECE;
+      }
+      tr {
+      border:15px solid black;
+      }
+      #error {
+        color:#E83535;
+        font-size:3em;
+        text-align:center;
+      }
+    script(type='text/javascript', src='http://code.jquery.com/jquery-latest.min.js')
   body
-    ul
-      for row in rows
-        li= row.name
+    if isError !== true
+      #content
+        p#player-header #{username}
+        #player-data-left
+          img(src='https://minotar.net/armor/bust/' + username + '/1000.png')
+        #player-data-right
+          #inset
+            p#uuid UUID:
+            p#uuid-code
+              | #{uuid}
+              a.fa.fa-files-o(href='#')
+            table
+              tr
+                th Username
+                th Changed At
+              for name in names
+
+                tr
+                  td #{name.name}
+                  if name.changedToAt !== undefined
+                    -var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    - var date = new Date(name.changedToAt)
+                    td #{monthNames[date.getMonth()] + " " + date.getDay() + ", " + date.getFullYear() + " at " + date.getHours() + ":" + date.getMinutes()}
+                  else
+                    td Original
+    else
+      p#error Player account doesn't exist!
+    #top-bar
+      p.header-text MineStalker
+      input#textfield-header(type='text')
+
+      a(href='#' onclick="findPlayer()")
+
+        i#submit.fa.fa-arrow-right
+
+    script.
+      $(window).scroll(function() {
+      var scroll = $(window).scrollTop();
+      if (scroll > 0) {
+      $("#top-bar").addClass("active");
+      }
+      else {
+      $("#top-bar").removeClass("active");
+      }
+      });
+      document.getElementById("textfield-header").addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode == 13) {
+          document.getElementById("submit").click();
+        }
+      });
+      function findPlayer(){
+        console.log("UES")
+        window.location = document.getElementById("textfield-header").value
+      }
